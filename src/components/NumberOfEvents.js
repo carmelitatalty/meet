@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-const NumberOfEvents = () => {
-  const [numberOfEvents, setNumberOfEvents] = useState(32);
+const NumberOfEvents = ({ currentNOE, setCurrentNOE }) => {
+ 
+  const handleInputChanged = (event) => {
+    const value = event.target.value;
+    setCurrentNOE(value)
+  }
   return (
-    <input type='text' imputmode='numeric' pattern='\d*' id='number-of-events' value={numberOfEvents}>
-
-    </input>
-  )
-}
-export default NumberOfEvents
+    <input
+      type="text"
+      imputmode="numeric"
+      pattern="\d*"
+      id="number-of-events"
+      defaultValue={currentNOE}
+      onChange={handleInputChanged}
+    ></input>
+  );
+};
+export default NumberOfEvents;
