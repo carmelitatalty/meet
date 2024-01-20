@@ -12,6 +12,7 @@ const NumberOfEvents = ({ currentNOE, setCurrentNOE }) => {
       imputmode="numeric"
       pattern="\d*"
       id="number-of-events"
+      title="number-of-events"
       defaultValue={currentNOE}
       onChange={handleInputChanged}
     ></input>
