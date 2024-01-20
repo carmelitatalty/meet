@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 describe("<NumberOfEvents /> component", () => {
   let NumberOfEventsComponent;
   beforeEach(() => {
-    NumberOfEventsComponent = render(<NumberOfEvents />);
+    NumberOfEventsComponent = render(<NumberOfEvents setErrorAlert={() => { }} />);
   });
   test("have an element with textbox role", () => {
     const numberOfEventsTextBox =
@@ -14,14 +14,14 @@ describe("<NumberOfEvents /> component", () => {
   });
 
   test("have a default of 32 events", () => {
-    NumberOfEventsComponent.rerender(<NumberOfEvents currentNOE={'32'} />)
+    NumberOfEventsComponent.rerender(<NumberOfEvents currentNOE={'32'} setErrorAlert={() => { }} />)
     const numberOfEventsTextBox =
       NumberOfEventsComponent.queryByRole("textbox");
     expect(numberOfEventsTextBox.value).toBe("32");
   });
 
   test("textbox has a value that changes accordingly when user is typing", async () => {
-    NumberOfEventsComponent.rerender(<NumberOfEvents currentNOE={'32'} setCurrentNOE={() => {}} />)
+    NumberOfEventsComponent.rerender(<NumberOfEvents currentNOE={'32'} setCurrentNOE={() => {}} setErrorAlert={() => { }} />)
     const user = userEvent.setup();
     const numberOfEventsTextBox =
       NumberOfEventsComponent.queryByRole("textbox");
