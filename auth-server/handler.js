@@ -94,7 +94,7 @@ module.exports.getCalendarEvents = async (event) => {
         } else {
           resolve(response);
         }
-      }
+      })}
     )
     .then((results) => {
       // Respond with OAuth token 
@@ -114,5 +114,4 @@ module.exports.getCalendarEvents = async (event) => {
         body: JSON.stringify(error),
       };
     });
-  })
-}
+  }
