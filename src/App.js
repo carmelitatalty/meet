@@ -25,6 +25,7 @@ const App = () => {
     setAllLocations(extractLocations(allEvents));
   };
   useEffect(() => {
+    console.log(`Online: ${navigator.onLine}`)
     if (navigator.onLine) {
       setWarningAlert('')
     } else {
